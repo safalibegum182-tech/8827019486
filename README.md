@@ -1,37 +1,37 @@
-# RIYA Bot FINAL
+# RIYA AI Telegram Bot
 
-## Automatic Group Activation
-No `/setupgroup` command is needed.
+## Railway setup
 
-When RIYA is promoted to **Administrator** in a group/supergroup:
-- 👑 Group mode automatically turns ON
-- 💬 RIYA replies to ordinary text messages
-- ✨ RIYA tries to add random emoji reactions
-- 🎉 RIYA sends an activation message
+The Telegram bot token is kept only in Railway Variables. Do NOT put the real token in GitHub.
 
-If RIYA is demoted or removed, group mode automatically turns OFF.
+Required Railway Variables:
 
-## Required hosting Variables
-BOT_TOKEN=YOUR_NEW_TELEGRAM_BOT_TOKEN
-OWNER_ID=YOUR_NUMERIC_TELEGRAM_USER_ID
+- `BOT_TOKEN` = your Telegram BotFather token
+- `OWNER_ID` = your numeric Telegram user ID
 
-Optional:
-ENABLE_VOICE=true
-REACTION_ENABLED=true
-DB_PATH=riya.db
+Optional/default Variables:
 
-## Files
-- riya_bot.py
-- requirements.txt
-- start.sh
-- README.md
+- `ENABLE_VOICE=true`
+- `REACTION_ENABLED=true`
+- `DB_PATH=riya.db`
 
-## Run
+The repository includes `railway.toml`, so Railway has an explicit start command:
+
+`python riya_bot.py`
+
+## GitHub
+
+Safe to upload this project to a private or public GitHub repository as long as you never add your real `.env` or token. `.gitignore` excludes local secrets and the SQLite runtime database.
+
+## Telegram
+
+For ordinary group messages, disable Group Privacy for the bot in BotFather. The bot also needs to be promoted to administrator in a group for the automatic group activation logic.
+
+## Run locally
+
+```bash
 pip install -r requirements.txt
+export BOT_TOKEN="YOUR_TOKEN"
+export OWNER_ID="YOUR_NUMERIC_ID"
 python riya_bot.py
-
-## Important Telegram settings
-For the bot to receive ordinary group messages, disable Group Privacy for the bot in BotFather.
-
-Do NOT put the bot token inside the Python source code.
-Use a newly generated token if an old token was ever exposed.
+```
