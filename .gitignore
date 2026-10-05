@@ -1,0 +1,14 @@
+.env
+*.env
+
+riya.db
+*.db
+*.sqlite
+*.sqlite3
+
+riya_voice_*.mp3
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
